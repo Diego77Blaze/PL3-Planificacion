@@ -2,10 +2,10 @@
     (problem rover)
     (:domain rover-domain)
     (:objects ;declaracion de objetos
-        lugar1 lugar2 lugar3 lugar4 - location
+        P0000 P0610 - point
     )
     (:init
-        (at lugar1);el rover esta en el lugar1
+        (at P0000);el rover esta en el P0000
         (= (cantidad_bateria ) 100)
         (accessible  lugar1 lugar2);declaracion de la accesibilidad entre dos sitios
         (accessible  lugar1 lugar3)
@@ -18,25 +18,14 @@
         (= (bateria_requerida_analyseslow) 2)
         (= (bateria_requerida_analysefast) 4)
         (= (bateria_requerida_communicate) 1)
-        (= (bateria_requerida_moveslow lugar1 lugar2) 30)
-        (= (bateria_requerida_moveslow lugar1 lugar3) 25)
-        (= (bateria_requerida_moveslow lugar2 lugar4) 15)
-        (= (bateria_requerida_moveslow lugar3 lugar4) 15)
-        (= (bateria_requerida_movefast lugar1 lugar2) 60)
-        (= (bateria_requerida_movefast lugar1 lugar3) 50)
-        (= (bateria_requerida_movefast lugar2 lugar4) 30)
-        (= (bateria_requerida_movefast lugar3 lugar4) 30)
+        (= (bateria_requerida_moveslow P0000 P0610) 30)
+
         (= (umbral_bateria) 20);declaracion del umbral de bateria
 
         (=(bateria_usada)0);declaracion de la bateria usada
     )
     (:goal (and ;declaracion de la meta
-              (analysed lugar3)
-              (picture_taken lugar3)
-              (drilled lugar4)
-              (drilled lugar3)
-              (analysed lugar4)
-              (analysed lugar1)
+              (picture_taken P0610)
               (communicated)
             )
     )
