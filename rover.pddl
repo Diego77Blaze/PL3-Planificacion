@@ -1,20 +1,20 @@
 (define (domain rover-domain)
     (:requirements :typing :durative-actions :fluents) ;requirements definition
-    (:types location) ;types definition
+    (:types point) ;types definition
     (:predicates ;predicates definition
-        (at ?l - location)
-        (accessible ?l1 ?l2 - location)
+        (at ?l - point)
+        (accessible ?l1 ?l2 - point)
         (moving)
-        (picture_taken ?l - location)
-        (drilled ?l - location)
-        (analysed ?l - location)
+        (picture_taken ?l - point)
+        (drilled ?l - point)
+        (analysed ?l - point)
         (communicated)
 	)
     (:functions ;function definition
         (cantidad_bateria)
         (bateria_usada)
-        (bateria_requerida_moveslow ?l1 ?l2 - location) ;bateria requerida para moverse lento entre 2 sitios
-        (bateria_requerida_movefast ?l1 ?l2 - location) ;bateria requerida para moverse lento entre 2 sitios
+        (bateria_requerida_moveslow ?l1 ?l2 - point) ;bateria requerida para moverse lento entre 2 sitios
+        (bateria_requerida_movefast ?l1 ?l2 - point) ;bateria requerida para moverse lento entre 2 sitios
         (bateria_requerida_fotoslow) ;bateria requerida para tomar una foto lento
         (bateria_requerida_fotofast) ;bateria requerida para tomar una foto rapido
         (bateria_requerida_drillslow) ;bateria requerida para taladrar lento
@@ -27,8 +27,8 @@
 
     (:durative-action move_slow ;rover moves slow
         :parameters
-            (?from - location
-             ?to - location)
+            (?from - point
+             ?to - point)
 
         :duration
             (= ?duration 5)
@@ -53,8 +53,8 @@
 
     (:durative-action move_fast ;rover moves fast
         :parameters
-            (?from - location
-             ?to - location)
+            (?from - point
+             ?to - point)
 
         :duration
             (= ?duration 2)
@@ -80,7 +80,7 @@
   (:durative-action take_picture_slow ;toma una foto en modo lento
     :parameters
       (
-      ?l - location)
+      ?l - point)
 
     :duration
       (= ?duration 2)
@@ -105,7 +105,7 @@
   (:durative-action take_picture_fast ;toma una foto en modo rapido
     :parameters
       (
-      ?l - location)
+      ?l - point)
 
     :duration
       (= ?duration 1)
@@ -130,7 +130,7 @@
   (:durative-action drill_slow ;taladrar en modo lento
     :parameters
       (
-      ?l - location)
+      ?l - point)
 
     :duration
       (= ?duration 30)
@@ -155,7 +155,7 @@
   (:durative-action drill_fast ;taladrar en modo lento
     :parameters
       (
-      ?l - location)
+      ?l - point)
 
     :duration
       (= ?duration 15)
@@ -180,7 +180,7 @@
   (:durative-action analyseSampleFromPlace_slow ;analiza la muestra de un sitio en modo lento
     :parameters
       (
-      ?l - location)
+      ?l - point)
 
     :duration
       (= ?duration 20)
@@ -204,7 +204,7 @@
   (:durative-action analyseSampleFromPlace_fast
     :parameters
       (
-      ?l - location)
+      ?l - point)
 
     :duration
       (= ?duration 10)
