@@ -48,7 +48,7 @@ def generate_task_list(filepath):
 # specific need.
 
 def visualize_paths_from_pddl(task_plan, path_to_map):
-    position = (10, 10) # change this to the starting position for your PDDL problem
+    position = (0, 0) # change this to the starting position for your PDDL problem
     pp.load_image(path_to_map)
     log = open("../out/planning_execution.log", "w+")
     task_number = 0
